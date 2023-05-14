@@ -30,9 +30,7 @@ const pintarCorreos = data => {
   data.forEach(correo => {
     templateCorreo.querySelector(".remitente").textContent = correo.correo;
     templateCorreo.querySelector(".Asunto").textContent = correo.asunto;
-    templateCorreo.querySelector(".cuerpo").textContent = correo.mensaje.split(' ').slice(0, 10).join(' ');
-    
-    
+    templateCorreo.querySelector(".cuerpo").textContent = correo.mensaje.split(' ').slice(0, 20).join(' ');
     const clone = templateCorreo.cloneNode(true);
     fragment.appendChild(clone);
   });
