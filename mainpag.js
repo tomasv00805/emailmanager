@@ -1,5 +1,6 @@
-const correos = document.getElementById('correos');
+const correo = document.getElementById('correos');
 const templateCorreo = document.getElementById('template-correo').content;
+const fragment = document.createDocumentFragment();
 
 function cambiarColor(botonPresionado) {
   var botones = document.querySelectorAll('.boton-cambio');
@@ -26,7 +27,14 @@ const fetchData = async () => {
 };
 
 const pintarCorreos = data => {
-  console.log(data);
   data.forEach(correo => {
-    templateCorreo.querySelector()
-}
+    templateCorreo.querySelector(".remitente").textContent = correo.correo;
+    templateCorreo.querySelector(".Asunto").textContent = correo.asunto;
+    templateCorreo.querySelector(".cuerpo").textContent = correo.mensaje.split(' ').slice(0, 10).join(' ');
+    
+    
+    const clone = templateCorreo.cloneNode(true);
+    fragment.appendChild(clone);
+  });
+  correo.appendChild(fragment);
+};
