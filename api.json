@@ -1,0 +1,42 @@
+[
+    {
+        "correo": "tomi@gmail.com",
+        "asunto":"Hola",
+        "mensaje":"Hola, como estas?"
+    },
+    {
+        "correo": "joaqui@gmail.com",
+        "asunto":"si",
+        "mensaje":"si, todo bein"
+    },
+    {
+        "correo": "juli@gmail.com",
+        "asunto":"Hola",
+        "mensaje":"Hola, como estas?"
+    },
+    {
+        "correo": "ejemplo4@gmail.com",
+        "asunto":"Hola",
+        "mensaje":"Hola, como estas?"
+    },
+    {
+        "correo": "ejemplo4@gmail.com",
+        "asunto":"Hola",
+        "mensaje":"Hola, como estas?"
+    },
+    {
+        "correo": "ejemplo4@gmail.com",
+        "asunto":"Hola",
+        "mensaje":"Hola, como estas?"
+    },
+    {
+        "correo": "ejemplo4@gmail.com",
+        "asunto":"Hola",
+        "mensaje":"Hola, como estas?"
+    },
+    {
+        "correo": "ejemplo4@gmail.com",
+        "asunto":"Hola",
+        "mensaje":"Hola, como estas?"
+    }
+]

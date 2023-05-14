@@ -21,65 +21,39 @@
                 </div>
         </div>
         <div class="basis-3/12 flex flex-col ">
-                <!-- Nombre -->
-                <div class="p-4 text-lg font-bold">Nombre de la columna</div>
+            <!-- Nombre -->
+            <div class="p-4 text-lg font-bold">
+                Nombre de la columna
+            </div>
                 
-                <!-- Input de búsqueda y botón -->
-                <div class="flex p-4">
-                  <input type="text" class="w-full px-2 py-1 border border-gray-400 rounded-l focus:outline-none" placeholder="Buscar">
-                  <button class="px-4 py-1 bg-blue-500 text-white font-bold rounded-r">Buscar</button>
-                </div>
+            <!-- Input de búsqueda y botón -->
+            <div class="flex p-4">
+              <input type="text" class="w-full px-2 py-1 border border-gray-400 rounded-l focus:outline-none" placeholder="Buscar">
+              <button class="px-4 py-1 bg-blue-500 text-white font-bold rounded-r">Buscar</button>
+            </div>
               
-                <!-- Scroll -->
-                <div class="flex-grow overflow-y-auto ">
-                    <!-- correos -->
+            <!-- Scroll -->
+            <div class="flex-grow overflow-y-auto" id="correos">
+                <!-- correos -->
+                <template id="template-correo">
                     <div class="cursor-pointer correo p-4 bg-gray-200 hover:bg-gray-300">
-                        <div class="font-bold">Remitente</div>
-                        <div class="text-lg font-bold mt-1">Título del correo</div>
-                        <div class="text-gray-600 mt-2 pb-1">Texto del correo</div>
-                    </div>
-                    <div class="cursor-pointer correo p-4 bg-gray-200 hover:bg-gray-300">
-                        <div class="font-bold">Remitente</div>
-                        <div class="text-lg font-bold mt-1">Título del correo</div>
-                        <div class="text-gray-600 mt-2 pb-1">Texto del correo</div>
-                    </div>
-                    <div class="cursor-pointer correo p-4 bg-gray-200 hover:bg-gray-300">
-                        <div class="font-bold">Remitente</div>
-                        <div class="text-lg font-bold mt-1">Título del correo</div>
-                        <div class="text-gray-600 mt-2 pb-1">Texto del correo</div>
-                    </div>
-                    <div class="cursor-pointer correo p-4 bg-gray-200 hover:bg-gray-300">
-                        <div class="font-bold">Remitente</div>
-                        <div class="text-lg font-bold mt-1">Título del correo</div>
-                        <div class="text-gray-600 mt-2 pb-1">Texto del correo</div>
-                    </div>
-                    <div class="cursor-pointer correo p-4 bg-gray-200 hover:bg-gray-300">
-                        <div class="font-bold">Remitente</div>
-                        <div class="text-lg font-bold mt-1">Título del correo</div>
-                        <div class="text-gray-600 mt-2 pb-1">Texto del correo</div>
-                    </div>
-                    <div class="cursor-pointer correo p-4 bg-gray-200 hover:bg-gray-300">
-                        <div class="font-bold">Remitente</div>
-                        <div class="text-lg font-bold mt-1">Título del correo</div>
-                        <div class="text-gray-600 mt-2 pb-1">Texto del correo</div>
-                    </div>
-                    <div class="cursor-pointer correo p-4 bg-gray-200 hover:bg-gray-300">
-                        <div class="font-bold">Remitente</div>
-                        <div class="text-lg font-bold mt-1">Título del correo</div>
-                        <div class="text-gray-600 mt-2 pb-1">Texto del correo</div>
-                    </div>
-                </div>
+                        <div class="font-bold remitente">Remitente</div>
+                        <div class="text-lg font-bold mt-1 Asunto">Título del correo</div>
+                        <div class="text-gray-600 mt-2 pb-1 cuerpo">Texto del correo</div>
+                    </div>   
+                </template>    
+            </div>
         </div>
         <div class="basis-7/12 p-4 border border-gray-300">
             <div class="text-lg font-bold mb-2">Nombre de la persona</div>
             <div class="text-gray-600 mb-2">correo@ejemplo.com</div>
             <div class="text-lg font-bold mb-2">Asunto del correo</div>
-            <div class="text-gray-600 mb-4 overflow-y-auto" style="max-height: 750px;">
+            <div class="text-gray-600 mb-4 overflow-y-auto" style="max-height:500px;">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quas suscipit doloremque commodi minus natus, vel reiciendis nihil obcaecati reprehenderit debitis vero, temporibus ea veniam at culpa aliquam facilis adipisci enim iste! Cupiditate quibusdam ipsum illum, dolore fuga dicta. Tempora dicta, commodi aliquam aliquid porro voluptatibus reprehenderit, quibusdam eius quaerat expedita deserunt at aut non officiis officia! Dolor tempore maxime obcaecati, voluptatibus quidem reiciendis cupiditate perspiciatis voluptates deleniti, omnis quae dignissimos accusantium magnam, soluta possimus corporis dicta repudiandae quibusdam dolores. Vitae sint esse nihil, debitis commodi, corporis officia aliquam quae a maiores quas provident sunt! Facilis pariatur suscipit velit in similique accusamus, perspiciatis, laborum nulla animi eligendi doloribus molestias soluta culpa facere sint quos. Nulla voluptas laboriosam facere sint vero corrupti consequatur corporis, officia eveniet. Animi obcaecati ad quisquam maiores earum repellendus odit dignissimos fugit adipisci, aliquid accusantium quae possimus dolores blanditiis doloremque dolor quas! Sunt quasi libero ipsam, aspernatur consectetur repellat quis et, minus eveniet quo natus id enim quas saepe exercitationem excepturi maxime eligendi, eius facere tenetur voluptates sed dicta cupiditate! Itaque eum a alias saepe nihil nisi voluptas sequi, cum quis commodi, rem iste. Eius quisquam quasi aliquam possimus, autem voluptas, obcaecati quidem ipsa est assumenda eum blanditiis magnam voluptatum esse enim consequuntur quis animi ducimus eveniet eaque consectetur cum dignissimos officia. Quo, nisi laboriosam reiciendis provident sequi minus ipsa eveniet, non ipsam, natus dignissimos delectus nobis incidunt fuga unde? Vel iure maiores porro eos nostrum quod modi itaque sed nihil architecto. Consequatur vitae magnam assumenda quod sed illo accusantium iure beatae exercitationem. Enim earum, officia magni quas perferendis soluta nobis ipsum autem ut veniam, esse, cupiditate sit expedita exercitationem placeat repellat explicabo ipsa architecto eius. Officia cumque inventore quos maiores ut fugit, alias ab doloremque quidem praesentium tempora quia, velit placeat. Minima eveniet harum deleniti nihil unde, reprehenderit, consequuntur cupiditate dolor non tenetur odio et eum ut tempora quo nam illo commodi sapiente corporis adipisci voluptatibus suscipit libero. Unde exercitationem atque quae minima consequatur pariatur placeat. Asperiores veniam blanditiis explicabo quia eaque perspiciatis placeat dolores ut expedita nobis consequuntur, laborum numquam? Totam sequi in necessitatibus doloribus consectetur, harum similique delectus officia perferendis voluptas repellat molestias, inventore voluptate eaque aut blanditiis repudiandae ullam! Quidem ducimus nisi nostrum dolore nemo! Deserunt, quia. Quasi impedit necessitatibus animi dolorem natus aut, itaque aperiam pariatur aliquid! Nobis exercitationem molestiae, blanditiis, totam id quisquam aut, labore explicabo facere iste possimus sed hic! Voluptas natus nihil magnam quod tempore ab maxime, nobis odio reprehenderit soluta. Perferendis placeat, porro veniam dicta voluptas omnis nostrum, odit provident nam recusandae aliquid ducimus quibusdam odio molestiae a dolorum veritatis enim ex praesentium saepe nobis assumenda dignissimos temporibus beatae? Dolor nisi excepturi totam tempore nam impedit quam optio doloribus. Nam consectetur asperiores nostrum alias et saepe omnis accusantium eaque magnam. A libero voluptatum repudiandae perspiciatis expedita, accusamus qui. Cum nihil totam sunt? Cumque illo id maxime amet temporibus? Amet a repellendus, animi fugiat quis vel velit atque id cupiditate reiciendis, commodi dignissimos beatae! Amet, nam voluptatem reprehenderit consequuntur ea alias magnam deserunt quod a recusandae consectetur itaque, doloremque earum, dolorem excepturi harum omnis magni dolor qui fugiat quasi dolore! Ex suscipit doloremque fuga numquam at illo repudiandae, beatae nulla rerum architecto eos delectus, ea non laboriosam pariatur aspernatur! Aliquam provident quas, consequatur cumque ab sint voluptatum nulla illo, quod adipisci doloribus corrupti aspernatur ratione? Sint assumenda asperiores repudiandae dolorum eveniet eligendi ipsa facilis quo quia. Laudantium, voluptates esse porro commodi nisi a odio voluptate neque error consequatur omnis rem hic maxime corporis assumenda saepe facilis distinctio cumque temporibus. Architecto dolores delectus ea cupiditate, facilis eligendi amet assumenda suscipit molestias pariatur voluptate fuga autem, aperiam dolor, nisi natus repellendus provident deserunt sapiente. Dignissimos modi fuga laborum aliquam reiciendis laudantium rerum nemo quia ipsa dolorum non cum delectus quas, officiis exercitationem veritatis inventore. Delectus voluptatibus perferendis eius vero quos maxime placeat libero excepturi, sapiente provident, earum nostrum magni doloribus ducimus commodi fuga in beatae velit debitis inventore cum sunt quae. Suscipit libero praesentium dolor ratione quod rerum amet magnam quisquam dolores hic enim eaque optio, sed soluta sit, quae debitis dolorem unde quidem excepturi et beatae quibusdam. Et, atque esse illum quasi cum deserunt tempore velit, molestias temporibus quam itaque, doloribus rem ea molestiae sit distinctio. Cumque beatae, iste nesciunt odit aspernatur porro nemo illum provident rem dolorum animi officia, molestias modi facilis exercitationem tenetur vel veniam omnis perferendis distinctio fugit magni quisquam, repellendus nobis. Fuga recusandae quod quos corrupti cum id quo maiores aliquid sint porro debitis ullam distinctio nam soluta molestias, ducimus totam sunt deserunt veritatis quas quam ratione quae similique molestiae! Fugit tempore distinctio alias, harum dolorum, eum id architecto doloribus velit quo impedit praesentium. Dolore omnis perferendis ducimus totam, velit iste molestias tempora non repellendus fuga fugit. Dolorem inventore facilis placeat mollitia reprehenderit aspernatur similique beatae magnam molestias voluptate enim id libero illo dicta dolor quo cumque totam dolores, rerum sint maxime culpa. Ullam incidunt tempore, porro dolor unde temporibus laboriosam qui a recusandae, ducimus magnam aperiam, aliquid excepturi eaque ad eos itaque in. Animi ipsa mollitia unde illo quas, est voluptatibus ullam, quo atque sed nemo corrupti alias cum exercitationem soluta voluptatem numquam magnam consequatur. Numquam, cum maxime. Quis aperiam incidunt delectus consequuntur pariatur corporis distinctio optio facere sed nisi obcaecati fuga labore itaque, unde totam alias iure velit doloremque, assumenda cumque, sint nihil. Officiis, libero et est sapiente, consequuntur cum accusantium unde in obcaecati quae laboriosam consequatur perspiciatis. Vitae consequuntur ducimus possimus minima distinctio, sunt nam cum rerum porro molestias vero modi quibusdam natus quia asperiores. Deleniti, numquam facilis! Nulla autem sunt, animi aliquam minima consectetur, magni eum necessitatibus in, nostrum dolorem veniam non qui velit consequatur corporis! Culpa eveniet veritatis sed eligendi doloremque. Exercitationem cumque possimus, repellendus neque vero beatae aperiam vitae ex labore nostrum qui, odit commodi illo itaque, dignissimos dolor accusamus eligendi sapiente pariatur suscipit vel sunt officia eius? Nobis quibusdam minima vel nemo. Non aspernatur harum sit praesentium aliquid vel quia, deserunt odio, sed ullam natus cupiditate? Sequi, impedit sit?
             </div>
-            <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded float-right">Reenviar</button> 
+            <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded float-right">responder</button> 
         </div>
     </div>
 </body>
-<script src="/class/mainpag.js"></script>
+<script src="/mainpag.js"></script>
 </html>
