@@ -1,6 +1,8 @@
 const correo = document.getElementById('correos');
 const templateCorreo = document.getElementById('template-correo').content;
 const fragment = document.createDocumentFragment();
+const correoseleccionado = document.getElementById('correo_seleccionado');
+const templateCorreoseleccionado = document.getElementById('template_correoseleccionado').content;
 
 function cambiarColor(botonPresionado) {
   var botones = document.querySelectorAll('.boton-cambio');
@@ -30,7 +32,7 @@ const pintarCorreos = data => {
   data.forEach(correo => {
     templateCorreo.querySelector(".remitente").textContent = correo.correo;
     templateCorreo.querySelector(".Asunto").textContent = correo.asunto;
-    templateCorreo.querySelector(".cuerpo").textContent = correo.mensaje;
+    templateCorreo.querySelector(".cuerpo").textContent = correo.mensaje.split(' ').slice(0, 15).join(' ');;
     templateCorreo.querySelector(".botonid").dataset.id= correo.id;
     const clone = templateCorreo.cloneNode(true);
     fragment.appendChild(clone);

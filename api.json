@@ -19,13 +19,13 @@
     },
     {
         "id": 4,
-        "correo": "ejemplo4@gmail.com",
+        "correo": "gabriel@gmail.com",
         "asunto":"Hola",
         "mensaje":"Hola, como estas?"
     },
     {
         "id": 5,
-        "correo": "ejemplo4@gmail.com",
+        "correo": "@gmail.com",
         "asunto":"Hola",
         "mensaje":"Hola, como estas?"
     },
