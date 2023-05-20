@@ -1,22 +1,14 @@
 //importa el Emailmanager
 import { EmailManager } from "../class/Emailmanager";
-import * as fs from 'fs';
+import {Getjson} from "../class/Eljson";
 //creame el emailmanager y crea dos usuarios
 
 let emailManager = new EmailManager([]);
-emailManager.crearUsuario("usuario1", "usuario1@gmail.com", "1234", [], []);
-emailManager.crearUsuario("usuario2", "usuario2@gmail.com", "1234", [], []);
+console.log (emailManager.usuarios);
+Getjson(emailManager);
+console.log (emailManager.usuarios);
 
-//creame un email y envialo
-emailManager.enviarCorreo("usuario1@gmail.com", ["usuario2@gmail.com"], "asunto", "cuerpo");
+//crear usuario
+emailManager.enviarCorreo("pepe@gmail.com", ["usuario2@gmail.com","usuario1@gmail.com"],"hola","chau");
 
-//imprime los usuarios
-const jsonArray = JSON.stringify(emailManager.getUsuarios());
-
-fs.writeFile('../api2.json', jsonArray, (error) => {
-    if (error) {
-      console.error('Error al guardar el archivo:', error);
-      return;
-    }
-    console.log('El archivo se ha guardado correctamente.');
-  });
+console.log(emailManager.usuarios);

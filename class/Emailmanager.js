@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmailManager = void 0;
 var Usuario_1 = require("./Usuario");
 var Correos_1 = require("./Correos");
+var Eljson_1 = require("../class/Eljson");
+var Eljson_2 = require("../class/Eljson");
 var EmailManager = /** @class */ (function () {
     function EmailManager(usuarios) {
         this.usuarios = usuarios;
@@ -16,10 +18,13 @@ var EmailManager = /** @class */ (function () {
     EmailManager.prototype.crearUsuario = function (nombre, correo, contraseña, bandejaEntrada, bandejaEnviados) {
         var usuario = new Usuario_1.Usuario(nombre, correo, contraseña, bandejaEntrada, bandejaEnviados);
         this.usuarios.push(usuario);
+        (0, Eljson_2.Crearjson)(this);
     };
     EmailManager.prototype.eliminarUsuario = function (correo) {
+        (0, Eljson_1.Getjson)(this);
         var index = this.usuarios.findIndex(function (usuario) { return usuario.correo == correo; });
         this.usuarios.splice(index, 1);
+        (0, Eljson_2.Crearjson)(this);
     };
     //enviar correo
     EmailManager.prototype.enviarCorreo = function (remitente, destinatarios, asunto, cuerpo) {
@@ -35,6 +40,7 @@ var EmailManager = /** @class */ (function () {
         for (var i = 0; i < destinatarios.length; i++) {
             _loop_1(i);
         }
+        (0, Eljson_2.Crearjson)(this);
     };
     return EmailManager;
 }());
