@@ -1,10 +1,12 @@
+import { Usuario } from "./Usuario";
+
 export class Email {
-    remitente: object;
-    destinatarios: object[];
+    remitente: string;
+    destinatarios: string[];
     asunto: string;
     cuerpo: string;
   
-    constructor(remitente: object, destinatarios: object[], asunto: string, cuerpo: string) {
+    constructor(remitente: string, destinatarios: string[], asunto: string, cuerpo: string) {
       this.remitente = remitente;
       this.destinatarios = destinatarios;
       this.asunto = asunto;
@@ -22,10 +24,10 @@ export class Email {
     getCuerpo(){
         return this.cuerpo;
     }
-    setRemitente(remitente: object){
+    setRemitente(remitente: string){
         this.remitente = remitente;
     }
-    setDestinatarios(destinatarios: object[]){
+    setDestinatarios(destinatarios: string[]){
         this.destinatarios = destinatarios;
     }
     setAsunto(asunto: string){
