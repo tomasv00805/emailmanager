@@ -1,4 +1,4 @@
-import { Correo } from "./tjj";
+import { Correo } from ;
 
 
 export function filtrarCorreos(filtro: (c: Correo) => boolean, Correos: Correo[]): Correo[] {

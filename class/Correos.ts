@@ -1,4 +1,4 @@
-class Email {
+export class Email {
     remitente: object;
     destinatarios: object[];
     asunto: string;
