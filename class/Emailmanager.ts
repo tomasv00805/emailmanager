@@ -21,10 +21,10 @@ export class EmailManager {
 
         let usuario = new Usuario(nombre, correo, contraseña, bandejaEntrada, bandejaEnviados);
         this.usuarios.push(usuario);
-        Crearjson(this);
+        
     }
     eliminarUsuario(correo: string){
-        Getjson(this);
+        
         let index = this.usuarios.findIndex((usuario) => usuario.correo == correo);
         this.usuarios.splice(index, 1);
         Crearjson(this);
@@ -41,6 +41,6 @@ export class EmailManager {
             let index2 = this.usuarios.findIndex((usuario) => usuario.correo == destinatarios[i]);
             this.usuarios[index2].bandejaEntrada.push(email);
         }
-        Crearjson(this);
+        
     }
   }

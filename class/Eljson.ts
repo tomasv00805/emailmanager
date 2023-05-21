@@ -2,8 +2,11 @@ import * as fs from 'fs';
 import { EmailManager } from "../class/Emailmanager";
 
 //creame un get json
+
+
 export function Getjson(EmailManager: EmailManager) {
     const rawdata = fs.readFileSync('api2.json');
+    console.log(JSON.parse(rawdata.toString()));
     // modificame el emailmanager
     EmailManager.setUsuarios(JSON.parse(rawdata.toString()));
     return EmailManager;

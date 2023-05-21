@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Usuario = void 0;
 var Usuario = /** @class */ (function () {
-    function Usuario(nombre, correo, contraseña, bandejaEntrada, bandejaEnviados) {
+    function Usuario(nombre, correo, contrasena, bandejaEntrada, bandejaEnviados) {
         this.nombre = nombre;
         this.correo = correo;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.bandejaEntrada = bandejaEntrada;
         this.bandejaEnviados = bandejaEnviados;
     }
@@ -16,7 +16,7 @@ var Usuario = /** @class */ (function () {
         return this.correo;
     };
     Usuario.prototype.getContraseña = function () {
-        return this.contraseña;
+        return this.contrasena;
     };
     Usuario.prototype.getBandejaEntrada = function () {
         return this.bandejaEntrada;
@@ -30,8 +30,8 @@ var Usuario = /** @class */ (function () {
     Usuario.prototype.setCorreo = function (correo) {
         this.correo = correo;
     };
-    Usuario.prototype.setContraseña = function (contraseña) {
-        this.contraseña = contraseña;
+    Usuario.prototype.setContraseña = function (contrasena) {
+        this.contrasena = contrasena;
     };
     Usuario.prototype.setBandejaEntrada = function (bandejaEntrada) {
         this.bandejaEntrada = bandejaEntrada;

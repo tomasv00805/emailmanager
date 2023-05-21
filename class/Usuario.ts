@@ -1,14 +1,14 @@
 export class Usuario {
     nombre: string;
     correo: string;
-    contraseña: string;
+    contrasena: string;
     bandejaEntrada: object[];
     bandejaEnviados: object[];
   
-    constructor(nombre: string, correo: string, contraseña: string, bandejaEntrada: object[], bandejaEnviados: object[]) {
+    constructor(nombre: string, correo: string, contrasena: string, bandejaEntrada: object[], bandejaEnviados: object[]) {
       this.nombre = nombre;
       this.correo = correo;
-      this.contraseña = contraseña;
+      this.contrasena = contrasena;
       this.bandejaEntrada = bandejaEntrada;
       this.bandejaEnviados = bandejaEnviados;
     }
@@ -19,7 +19,7 @@ export class Usuario {
         return this.correo;
     }
     getContraseña(){
-        return this.contraseña;
+        return this.contrasena;
     }
     getBandejaEntrada(){
         return this.bandejaEntrada;
@@ -33,8 +33,8 @@ export class Usuario {
     setCorreo(correo: string){
         this.correo = correo;
     }
-    setContraseña(contraseña: string){
-        this.contraseña = contraseña;
+    setContraseña(contrasena: string){
+        this.contrasena = contrasena;
     }
     setBandejaEntrada(bandejaEntrada: object[]){
         this.bandejaEntrada = bandejaEntrada;

@@ -5,6 +5,7 @@ var fs = require("fs");
 //creame un get json
 function Getjson(EmailManager) {
     var rawdata = fs.readFileSync('api2.json');
+    console.log(JSON.parse(rawdata.toString()));
     // modificame el emailmanager
     EmailManager.setUsuarios(JSON.parse(rawdata.toString()));
     return EmailManager;
