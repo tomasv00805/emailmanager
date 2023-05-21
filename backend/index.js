@@ -61,17 +61,17 @@ app.post('/send', (req, res) => {
     if (!from || !to || !subject || !body) {
         return res.status(400).json({ error: 'Todos los campos son obligatorios' });
     }
-    
+    const recipients = to.split(' ');
     const existingUser = users.find(user => user.username === from);
-    const existingUser2 = users.find(user => user.username === to);
+    const existingUser2 = users.find(user => user.username === recipients);
     
-    if (!existingUser) {
+    if (!existingUser && !existingUser2) {
         return res.status(401).json({ error: 'Usuario no registrado' });
     }
     
     const newEmail = {
         from,
-        to,
+        to: recipients,
         subject,
         body
     };
@@ -98,7 +98,7 @@ app.get('/inbox/:username', (req, res) => {
         return res.status(401).json({ error: 'Usuario no registrado' });
     }
     
-    const inbox = receivedEmails.filter(email => email.to === username);
+    const inbox = receivedEmails.filter(email => email.to.includes(username));
     
     return res.json(inbox);
 });
