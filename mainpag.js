@@ -21,13 +21,30 @@ function cambiarColor(botonPresionado) {
 
 
 
-const pintarCorreos = data => {
+const pintarCorreosrecividos = data => {
   const templateCorreo = document.getElementById('template-correo').content;
   data.forEach(correo => {
     //se cargan los datos del correo en el template
     templateCorreo.querySelector(".remitente").textContent = correo.from;
     templateCorreo.querySelector(".Asunto").textContent = correo.subject;
-    templateCorreo.querySelector(".cuerpo").textContent = correo.body;
+    //que solo se muestren 15 palabras
+    templateCorreo.querySelector(".cuerpo").textContent = correo.body.split(" ").slice(0, 20).join(" ");
+    //se clona el template para unir todas sus partes
+    const clone = templateCorreo.cloneNode(true);
+    //se agrega el clone al fragment
+    fragment.appendChild(clone);
+  });
+  //cargo el fragment en el div donde van a estar los correos
+  correo.appendChild(fragment);
+};
+const pintarCorreosenviados = data => {
+  const templateCorreo = document.getElementById('template-correo').content;
+  data.forEach(correo => {
+    //se cargan los datos del correo en el template
+    templateCorreo.querySelector(".remitente").textContent = correo.to;
+    templateCorreo.querySelector(".Asunto").textContent = correo.subject;
+    //que solo se muestren 15 palabras
+    templateCorreo.querySelector(".cuerpo").textContent = correo.body.split(" ").slice(0, 20).join(" ");
     //se clona el template para unir todas sus partes
     const clone = templateCorreo.cloneNode(true);
     //se agrega el clone al fragment
@@ -44,14 +61,60 @@ function handleRoutes(){
     fetch("http://localhost:3000/inbox/" + savedUsername)
       .then(res => res.json())
       .then(data => {
-        pintarCorreos(data);
+        pintarCorreosrecividos(data);
       });
+      correo.addEventListener('click', (e) => {
+        e.preventDefault();
+        const savedUsername = localStorage.getItem('username');
+        const destinatario = e.target.parentElement.querySelector(".remitente").textContent;
+        const asunto = e.target.parentElement.querySelector(".Asunto").textContent;
+        fetch("http://localhost:3000/inbox/" + savedUsername)
+          .then(res => res.json())
+          .then(data => {
+            data.forEach(correo => {
+              if(correo.from === destinatario && correo.subject === asunto){
+                templateCorreoseleccionado.querySelector(".nombrecorreo").textContent = correo.from;
+                templateCorreoseleccionado.querySelector(".asuntocorreo").textContent = correo.subject;
+                templateCorreoseleccionado.querySelector(".cuerpocorreo").textContent = correo.body;
+                templateCorreoseleccionado.classList.remove("hidden");
+                formulario_correo.classList.add("hidden");
+              }
+            });
+          });
+      }
+      );
   }
   if(path === '/webs/sent.html'){
     fetch("http://localhost:3000/sent/" + savedUsername)
       .then(res => res.json())
       .then(data => {
-        pintarCorreos(data);
+        pintarCorreosenviados(data);
+      }
+      );
+      correo.addEventListener('click', (e) => {
+        e.preventDefault();
+        const savedUsername = localStorage.getItem('username');
+        const destinatario = e.target.parentElement.querySelector(".remitente").textContent;
+        const destinatarioArray = destinatario.split(',');
+
+        console.log(destinatarioArray);
+        const asunto = e.target.parentElement.querySelector(".Asunto").textContent;
+        fetch("http://localhost:3000/sent/" + savedUsername)
+          .then(res => res.json())
+          .then(data => {
+            data.forEach(correo => {
+              console.log(correo.to);
+             
+              if(destinatarioArray === correo.to && correo.subject === asunto){
+                templateCorreoseleccionado.querySelector(".nombrecorreo").textContent = correo.to;
+                templateCorreoseleccionado.querySelector(".asuntocorreo").textContent = correo.subject;
+                templateCorreoseleccionado.querySelector(".cuerpocorreo").textContent = correo.body;
+                templateCorreoseleccionado.classList.remove("hidden");
+                formulario_correo.classList.add("hidden");
+              }
+              
+            });
+          });
       }
       );
   }
@@ -106,7 +169,23 @@ if(window.location.pathname === '/webs/main.html' || window.location.pathname ==
       })
   }
   )
+  //funcion para mostrar que cuando haga click en un correo se muestre el correo completo comparando el remitente y asunto
   
+  
+  //al oprimir el boton con la id botonbandejaentrada la pagina se direcciona a la bandeja de entrada
+  const botonbandejaentrada = document.getElementById('botonbandejaentrada');
+  botonbandejaentrada.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = 'http://localhost:5500/webs/main.html';
+  }
+  )
+  //al oprimir el boton con la id botonbandejaenviados la pagina se direcciona a la bandeja de entrada
+  const botonbandejaenviados = document.getElementById('botonbandejaenviados');
+  botonbandejaenviados.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = 'http://localhost:5500/webs/sent.html';
+  }
+  )
 }
 
 //Cosas que solo se ejecutan en la pagina index.html(login)

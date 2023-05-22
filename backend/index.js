@@ -62,10 +62,12 @@ app.post('/send', (req, res) => {
         return res.status(400).json({ error: 'Todos los campos son obligatorios' });
     }
     const recipients = to.split(' ');
-    const existingUser = users.find(user => user.username === from);
-    const existingUser2 = users.find(user => user.username === recipients);
+    //recorrer arreglo recipients para verificar que todos los usuarios existen
+    const allRecipientsExist = recipients.every(recipient =>
+      users.some(user => user.username === recipient)
+    );
     
-    if (!existingUser && !existingUser2) {
+    if (!allRecipientsExist) {
         return res.status(401).json({ error: 'Usuario no registrado' });
     }
     
