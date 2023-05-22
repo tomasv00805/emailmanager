@@ -2,7 +2,7 @@ const correo = document.getElementById('correos');
 const fragment = document.createDocumentFragment();
 const correoseleccionado = document.getElementById('correo_seleccionado');
 const nombredeusuario = document.getElementById('nombreusermain');
-//const templateCorreoseleccionado = document.getElementById('template_correoseleccionado').content;
+const templateCorreoseleccionado = document.getElementById('template_correoseleccionado');
 const loginForm = document.getElementById('login-form');
 const botonsalir = document.getElementById('botonsalir');
 let username = document.getElementById('username')
@@ -39,15 +39,13 @@ const pintarCorreos = data => {
 //funcion que redirecciona para obtener los correos dependiendo del usuario
 function handleRoutes(){
   const savedUsername = localStorage.getItem('username');
-  nombredeusuario.textContent = savedUsername;
   const path = window.location.pathname;
   if(path === '/webs/main.html'){
     fetch("http://localhost:3000/inbox/" + savedUsername)
       .then(res => res.json())
       .then(data => {
         pintarCorreos(data);
-      }
-      );
+      });
   }
   if(path === '/webs/sent.html'){
     fetch("http://localhost:3000/sent/" + savedUsername)
@@ -58,9 +56,9 @@ function handleRoutes(){
       );
   }
 }
-//Cosas que solo se ejecutan en la pagina de main 
+//Cosas que solo se ejecutan en la pagina de main y send
 
-if(window.location.pathname === '/webs/main.html'){
+if(window.location.pathname === '/webs/main.html' || window.location.pathname === '/webs/sent.html'){
   const savedUsername = localStorage.getItem('username');
   nombredeusuario.textContent = savedUsername;
   botonsalir.addEventListener('click', (e) => {
@@ -68,6 +66,47 @@ if(window.location.pathname === '/webs/main.html'){
     window.location.href = 'http://localhost:5500/index.html';
   }
   )
+  //funcion para mostrar el formulario_correo cuadno haga clic en el boton con id botonenviarcorreo
+  const botonenviarcorreo = document.getElementById('botonenviarcorreo');
+  const formulario_correo = document.getElementById('formulario_correo');
+  botonenviarcorreo.addEventListener('click', (e) => {
+    e.preventDefault();
+    templateCorreoseleccionado.classList.add("hidden");
+    formulario_correo.classList.remove("hidden");
+  }
+  )
+  //funcion para enviar el correo
+  const botonenviar = document.getElementById('botonenviar');
+  botonenviar.addEventListener('click', (e) => {
+    e.preventDefault();
+    const destinatario = document.getElementById('correopara').value;
+    const asunto = document.getElementById('correoasunto').value;
+    const cuerpo = document.getElementById('correocuerpo').value;
+    const savedUsername = localStorage.getItem('username');
+    fetch('http://localhost:3000/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: savedUsername,
+        to: destinatario,
+        subject: asunto,
+        body: cuerpo
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if(data.error){
+          alert(data.error);
+        }else{
+          alert('Correo enviado');
+          formulario_correo.classList.add("hidden");
+        }
+      })
+  }
+  )
+  
 }
 
 //Cosas que solo se ejecutan en la pagina index.html(login)
